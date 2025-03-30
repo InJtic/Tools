@@ -57,9 +57,9 @@ def inverse(
 
         dom_left, dom_right = domain
 
-        if (dom_left != ... and x < dom_left) or (dom_right != ... and x > dom_right):
-            if dom_left == ...: dom_left = "-inf"
-            if dom_right == ...: dom_right = "inf"
+        if (dom_left is not ... and x < dom_left) or (dom_right is not ... and x > dom_right):
+            if dom_left is ...: dom_left = "-inf"
+            if dom_right is ...: dom_right = "inf"
             raise DomainError(f"정의역에 포함되지 않는 값이 주어졌습니다! ({x} not in [{dom_left}, {dom_right}])")
 
         left, right = (
@@ -88,7 +88,7 @@ def inverse(
                     else:
                         right = mid - 1
                 else:
-                    if expected < x:
+                    if expected > x:
                         right = mid - 1
                     else:
                         right = mid + 1
