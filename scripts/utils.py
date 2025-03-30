@@ -88,10 +88,10 @@ def inverse(
                     else:
                         right = mid - 1
                 else:
-                    if expected > x:
+                    if expected < x:
                         right = mid - 1
                     else:
-                        right = mid + 1
+                        left = mid + 1
 
             if (left, right) == past:
                 raise NothingFoundError(f"수렴하는 값을 찾을 수 없습니다. (x={x})")
